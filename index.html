@@ -2,16 +2,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Namma Ooru</title>
 <meta name="description" content="A living 3D map of Bengaluru's startup ecosystem: companies, investors, institutions, landmarks, traffic and Easter eggs.">
+<!-- Link previews (X, WhatsApp, LinkedIn, Slack). Crawlers want og:image as an ABSOLUTE url and there's no build step
+     to fill one in, so the production domain is written out. Change it here if the site moves. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Namma Ooru">
+<meta property="og:title" content="Namma Ooru · ನಮ್ಮ ಊರು">
+<meta property="og:description" content="Bengaluru's startup ecosystem in 3D. Real streets, live traffic, Namma Metro, 160+ startups and investors, and 18 Easter eggs.">
+<meta property="og:url" content="https://namma-ooru-ashy.vercel.app/">
+<meta property="og:image" content="https://namma-ooru-ashy.vercel.app/assets/share-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An aerial 3D view of Bengaluru at sunset with lakes, the metro and skyscrapers, titled Namma Ooru.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Namma Ooru · ನಮ್ಮ ಊರು">
+<meta name="twitter:description" content="Bengaluru's startup ecosystem in 3D. Real streets, live traffic, Namma Metro, 160+ startups and investors, and 18 Easter eggs.">
+<meta name="twitter:image" content="https://namma-ooru-ashy.vercel.app/assets/share-card.jpg">
+<meta name="twitter:image:alt" content="An aerial 3D view of Bengaluru at sunset with lakes, the metro and skyscrapers, titled Namma Ooru.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<!-- Vercel Web Analytics - using @vercel/analytics package -->
 <script type="module">
-  import { inject } from '/js/vercel-analytics.mjs';
-  // Initialize Vercel Analytics with automatic mode detection
-  inject({ mode: 'auto' });
+// Vercel Web Analytics through the official @vercel/analytics package (vendored in js/, since there's no build step),
+// the same way the Independence Day site does it. It doesn't depend on the city, so a browser that can't start WebGL
+// still counts as a visit. Skipped locally and in the claude.ai preview, where /_vercel/insights doesn't exist.
+import { inject, track } from "/js/vercel-analytics.mjs";
+if (!/^(localhost|127\.0\.0\.1)$|claudeusercontent\.com$/.test(location.hostname)) {
+  inject({ mode: "production" });
+  window.track = track;
+}
 </script>
-<!-- Vercel Speed Insights -->
 <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
@@ -322,7 +342,16 @@ body.intro .brand,body.intro .topbar,body.intro .side,body.intro .dock{opacity:0
 <div id="caption" hidden><div class="t" id="capT"></div><div class="s" id="capS"></div></div>
 <button id="skip" hidden>SKIP INTRO</button>
 
-<!-- Vercel Web Analytics is now initialized via the @vercel/analytics package in the <head> section -->
+<script type="module">
+// Vercel Web Analytics through the official @vercel/analytics package (vendored in js/, since there's no build step),
+// the same way the Independence Day site does it. It doesn't depend on the city, so a browser that can't start WebGL
+// still counts as a visit. Skipped locally and in the claude.ai preview, where /_vercel/insights doesn't exist.
+import { inject, track } from "/js/vercel-analytics.mjs";
+if (!/^(localhost|127\.0\.0\.1)$|claudeusercontent\.com$/.test(location.hostname)) {
+  inject({ mode: "production" });
+  window.track = track;
+}
+</script>
 <script>
 // dev only: report errors and progress to the local server (tools/serve.py)
 if (location.hostname === "localhost") {
