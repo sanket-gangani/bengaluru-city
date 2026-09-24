@@ -72,7 +72,11 @@
   refreshEggs();
   function egg(id, title, body) {
     const first = !found.has(id);
-    if (first) { found.add(id); try { localStorage.setItem("no-eggs", JSON.stringify([...found])); } catch (e) { } refreshEggs(); }
+    if (first) {
+      found.add(id); try { localStorage.setItem("no-eggs", JSON.stringify([...found])); } catch (e) { } refreshEggs();
+      // Pageviews say how many people opened the map; this says which Easter eggs they actually find.
+      if (window.track) window.track("egg", { id });
+    }
     toast({ eyebrow: first ? `Easter egg ${found.size} / ${EGG_IDS.length}` : NO.EGGS[id], title, body, egg: first });
   }
   function renderEggPop() {

@@ -5,10 +5,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+<script type="module">
+// Vercel Web Analytics through the official @vercel/analytics package, the same way the Independence Day site does it.
+// There's no build step here, so the package comes from jsDelivr as an ES module. It doesn't depend on the city,
+// so a browser that can't start WebGL still counts as a visit. Skipped locally and in the claude.ai preview,
+// where /_vercel/insights doesn't exist.
+import { inject, track } from "https://cdn.jsdelivr.net/npm/@vercel/analytics@2.0.1/+esm";
+if (!/^(localhost|127\.0\.0\.1)$|claudeusercontent\.com$/.test(location.hostname)) {
+  inject({ mode: "production" });
+  window.track = track;
+}
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
@@ -319,13 +326,6 @@ body.intro .brand,body.intro .topbar,body.intro .side,body.intro .dock{opacity:0
 <div id="caption" hidden><div class="t" id="capT"></div><div class="s" id="capS"></div></div>
 <button id="skip" hidden>SKIP INTRO</button>
 
-<script>
-// Vercel Web Analytics (plain-HTML version). Only loads on the deployed site, not locally or inside the claude.ai preview.
-window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-if (!/^(localhost|127\.0\.0\.1)$|claudeusercontent\.com$/.test(location.hostname)) {
-  const va = document.createElement("script"); va.defer = true; va.src = "/_vercel/insights/script.js"; document.head.appendChild(va);
-}
-</script>
 <script>
 // dev only: report errors and progress to the local server (tools/serve.py)
 if (location.hostname === "localhost") {
