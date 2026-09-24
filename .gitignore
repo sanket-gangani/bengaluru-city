@@ -1,0 +1,7 @@
+# raw OpenStreetMap downloads (re-fetch with tools/fetch_osm.sh + tools/fetch_tiles.py)
+tools/osm/
+# dev-only
+tools/browser.log
+.claude/
+.DS_Store
+__pycache__/
