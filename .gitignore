@@ -5,3 +5,5 @@ tools/browser.log
 .claude/
 .DS_Store
 __pycache__/
+# dependencies
+node_modules/
