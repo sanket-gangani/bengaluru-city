@@ -1,0 +1,27 @@
+{
+  "name": "namma-ooru",
+  "version": "1.0.0",
+  "description": "A living 3D map of Bengaluru's startup ecosystem",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static HTML'",
+    "lint": "echo 'No linter configured'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanket-gangani/bengaluru-city.git"
+  },
+  "keywords": [
+    "bengaluru",
+    "bangalore",
+    "startup",
+    "map",
+    "3d"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
